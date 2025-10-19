@@ -77,6 +77,7 @@ for prop, domain, range_, label in prop_data:
     g.add((prop, RDFS.label, Literal(label, datatype=XSD.string)))
     g.add((prop, RDFS.domain, domain))
     g.add((prop, RDFS.range, range_))
+    
 # Visualize the results
 for s, p, o in g:
   print(s,p,o)
