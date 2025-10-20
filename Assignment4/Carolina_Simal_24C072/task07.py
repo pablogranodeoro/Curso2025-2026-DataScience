@@ -85,7 +85,6 @@ for s, p, o in g.triples((None, RDF.type, None)):
     if o == ns.Person or is_person_subclass(o):
         individuals.append(s)
 
-
 for i in individuals:
   print(i)
 
