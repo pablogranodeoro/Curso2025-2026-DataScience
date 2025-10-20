@@ -32,7 +32,6 @@ report = Report()
 """
 
 # TO DO
-result = []
 
 for s, p, o in g.triples((None, RDF.type, RDFS.Class)):
     superclass = None
@@ -128,22 +127,21 @@ report.validate_07_03(g, query)
 """**Task 7.4: List the name of those entities who have a colleague with a dog, or that have a collegue who has a colleague who has a dog (in SPARQL). Return the results in a variable called name**"""
 
 query = """
+PREFIX people: <http://oeg.fi.upm.es/def/people#>
+
 SELECT DISTINCT ?name
 WHERE {
   {
-    ?x <http://oeg.fi.upm.es/def/people#hasColleague> ?y .
-    ?y <http://xmlns.com/foaf/0.1/hasPet> ?dog .
-    ?dog rdf:type <http://oeg.fi.upm.es/def/people#Dog> .
-    ?x <http://xmlns.com/foaf/0.1/name> ?name .
+    ?person people:hasColleague ?colleague .
+    ?colleague people:ownsPet ?dog .
   }
   UNION
   {
-    ?x <http://oeg.fi.upm.es/def/people#hasColleague> ?y .
-    ?y <http://oeg.fi.upm.es/def/people#hasColleague> ?z .
-    ?z <http://xmlns.com/foaf/0.1/hasPet> ?dog .
-    ?dog rdf:type <http://oeg.fi.upm.es/def/people#Dog> .
-    ?x <http://xmlns.com/foaf/0.1/name> ?name .
+    ?person people:hasColleague ?c1 .
+    ?c1 people:hasColleague ?c2 .
+    ?c2 people:ownsPet ?dog .
   }
+  ?person people:hasName ?name .
 }
 """
 
