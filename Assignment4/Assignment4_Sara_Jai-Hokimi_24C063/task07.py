@@ -110,13 +110,13 @@ report.validate_07_02b(g, query)
 
 query = """
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX : <http://oeg.fi.upm.es/def/people#>
+PREFIX people: <http://oeg.fi.upm.es/def/people#>
 
-SELECT ?name ?type WHERE {
+SELECT ?name ?type
+WHERE {
+  ?person people:knows people:Rocky .
   ?person rdfs:label ?name .
-  ?person a ?type .
-  FILTER(?name IN ("Asun", "Raul", "Fantasma"))
+  ?person rdf:type ?type .
 }
 """
 # Visualize the results
@@ -129,13 +129,21 @@ report.validate_07_03(g, query)
 """**Task 7.4: List the name of those entities who have a colleague with a dog, or that have a collegue who has a colleague who has a dog (in SPARQL). Return the results in a variable called name**"""
 
 query = """
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
-SELECT ?name WHERE {
+PREFIX people: <http://oeg.fi.upm.es/def/people#>
+SELECT DISTINCT ?name
+WHERE {
   ?person rdfs:label ?name .
-  FILTER(?name IN ("Asun", "Raul", "Oscar"))
+  {
+    ?person people:hasColleague ?colleague1 .
+    ?colleague1 people:ownsPet ?pet1 .
+  }
+  UNION
+  {
+    ?person people:hasColleague ?colleague1 .
+    ?colleague1 people:hasColleague ?colleague2 .
+    ?colleague2 people:ownsPet ?pet2 .
+  }
 }
-ORDER BY ?name
 """
 # Visualize the results
 for r in g.query(query):
