@@ -26,7 +26,7 @@ r = Report()
 
 """Create a new class named Researcher"""
 
-ns = Namespace("http://mydomain.org#")
+ns = Namespace("http://oeg.fi.upm.es/def/people#")
 g.add((ns.Researcher, RDF.type, RDFS.Class))
 for s, p, o in g:
   print(s,p,o)
@@ -34,28 +34,30 @@ for s, p, o in g:
 """**Task 6.0: Create new prefixes for "ontology" and "person" as shown in slide 14 of the Slidedeck 01a.RDF(s)-SPARQL shown in class.**"""
 
 # this task is validated in the next step
-ontology = Namespace("https://www.oeg-upm.net/ontology#")
-person = Namespace("http://oeg.fi.upm.es/def/people#")
+ontology = Namespace("http://www.oeg-upm.net/Ontology#")
+person = Namespace("http://www.oeg-upm.net/Person#")
+g.bind("ontology", ontology)
+g.bind("person", person)
 
 """**TASK 6.1: Reproduce the taxonomy of classes shown in slide 34 in class (all the classes under "Vocabulario", Slidedeck: 01a.RDF(s)-SPARQL). Add labels for each of them as they are in the diagram (exactly) with no language tags. Remember adding the correct datatype (xsd:String) when appropriate**
 
 """
 
 # TO DO
-g.add((person.Person, RDF.type, RDFS.Class))
-g.add((person.Professor, RDF.type, RDFS.Class))
-g.add((person.AssociateProfessor, RDF.type, RDFS.Class))
-g.add((person.FullProfessor, RDF.type, RDFS.Class))
-g.add((person.InterimAssociateProfessor, RDF.type, RDFS.Class))
-g.add((person.Person, RDFS.label, Literal("Person", datatype=XSD.string)))
-g.add((person.Professor, RDFS.label, Literal("Professor", datatype=XSD.string)))
-g.add((person.AssociateProfessor, RDFS.label, Literal("AssociateProfessor", datatype=XSD.string)))
-g.add((person.FullProfessor, RDFS.label, Literal("FullProfessor", datatype=XSD.string)))
-g.add((person.InterimAssociateProfessor, RDFS.label, Literal("InterimAssociateProfessor", datatype=XSD.string)))
-g.add((person.Professor, RDFS.subClassOf, person.Person))
-g.add((person.AssociateProfessor, RDFS.subClassOf, person.Professor))
-g.add((person.FullProfessor, RDFS.subClassOf, person.Professor))
-g.add((person.InterimAssociateProfessor, RDFS.subClassOf, person.AssociateProfessor))
+g.add((ns.Person, RDF.type, RDFS.Class))
+g.add((ns.Professor, RDF.type, RDFS.Class))
+g.add((ns.AssociateProfessor, RDF.type, RDFS.Class))
+g.add((ns.FullProfessor, RDF.type, RDFS.Class))
+g.add((ns.InterimAssociateProfessor, RDF.type, RDFS.Class))
+g.add((ns.Person, RDFS.label, Literal("Person", datatype=XSD.string)))
+g.add((ns.Professor, RDFS.label, Literal("Professor", datatype=XSD.string)))
+g.add((ns.AssociateProfessor, RDFS.label, Literal("AssociateProfessor", datatype=XSD.string)))
+g.add((ns.FullProfessor, RDFS.label, Literal("FullProfessor", datatype=XSD.string)))
+g.add((ns.InterimAssociateProfessor, RDFS.label, Literal("InterimAssociateProfessor", datatype=XSD.string)))
+g.add((ns.Professor, RDFS.subClassOf, ns.Person))
+g.add((ns.AssociateProfessor, RDFS.subClassOf, ns.Professor))
+g.add((ns.FullProfessor, RDFS.subClassOf, ns.Professor))
+g.add((ns.InterimAssociateProfessor, RDFS.subClassOf, ns.AssociateProfessor))
 
 
 # Visualize the results
@@ -68,19 +70,20 @@ r.validate_task_06_01(g)
 """**TASK 6.2: Add the 3 properties shown in slide 36. Add labels for each of them (exactly as they are in the slide, with no language tags), and their corresponding domains and ranges using RDFS. Remember adding the correct datatype (xsd:String) when appropriate. If a property has no range, make it a literal (string)**"""
 
 # TO DO
-g.add((person.hasColleague, RDF.type, RDF.Property))
-g.add((person.hasColleague, RDFS.domain, ontology.Person))
-g.add((person.hasColleague, RDFS.range, ontology.University))
-g.add((person.hasColleague, RDFS.label, Literal("hasColleague", datatype=XSD.string)))
-g.add((person.hasHomePage, RDF.type, RDF.Property))
-g.add((person.hasHomePage, RDFS.domain, ontology.Researcher))
-g.add((person.hasHomePage, RDFS.range, ontology.University))
-g.add((person.hasHomePage, RDFS.label, Literal("hasHomePage", datatype=XSD.string)))
-g.add((person.hasName, RDF.type, RDF.Property))
-g.add((person.hasName, RDFS.domain, ontology.Person))
-g.add((person.hasName, RDFS.range, ontology.University))
-g.add((person.hasName, RDFS.label, Literal("hasName", datatype=XSD.string)))
-# Visualize the results
+g.add((ns.hasName, RDF.type, RDF.Property))
+g.add((ns.hasName, RDFS.label, Literal("hasName", datatype=XSD.string)))
+g.add((ns.hasName, RDFS.domain, ns.Person))
+g.add((ns.hasName, RDFS.range, RDFS.Literal))
+
+g.add((ns.hasColleague, RDF.type, RDF.Property))
+g.add((ns.hasColleague, RDFS.label, Literal("hasColleague", datatype=XSD.string)))
+g.add((ns.hasColleague, RDFS.domain, ns.Person))
+g.add((ns.hasColleague, RDFS.range, ns.Person))
+
+g.add((ns.hasHomePage, RDF.type, RDF.Property))
+g.add((ns.hasHomePage, RDFS.label, Literal("hasHomePage", datatype=XSD.string)))
+g.add((ns.hasHomePage, RDFS.domain, ns.FullProfessor))
+g.add((ns.hasHomePage, RDFS.range, RDFS.Literal))
 for s, p, o in g:
   print(s,p,o)
 
@@ -123,9 +126,9 @@ g.add((vcard.Given, RDFS.range, XSD.string))
 g.add((foaf.email, RDF.type, RDF.Property))
 g.add((foaf.email, RDFS.range, XSD.string))
 
-g.add((person.Oscar, vcard.Family, Literal("Corcho García", datatype=XSD.string)))
-g.add((person.Oscar, vcard.Given, Literal("Oscar", datatype=XSD.string)))
-g.add((person.Oscar, foaf.email, Literal("oscar.ocorcho@fi.upm.es", datatype=XSD.string)))
+g.add((data.Oscar, vcard.Family, Literal("Corcho García", datatype=XSD.string)))
+g.add((data.Oscar, vcard.Given, Literal("Oscar", datatype=XSD.string)))
+g.add((data.Oscar, foaf.email, Literal("oscar.corcho@fi.upm.es", datatype=XSD.string)))
 # Visualize the results
 for s, p, o in g:
   print(s,p,o)
