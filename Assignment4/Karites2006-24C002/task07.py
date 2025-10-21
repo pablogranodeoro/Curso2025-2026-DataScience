@@ -93,11 +93,10 @@ PREFIX people: <http://oeg.fi.upm.es/def/people#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?ind
+SELECT DISTINCT ?ind 
 WHERE {
-    ?ind rdf:type ?tipo .
-
-    FILTER(?tipo != rdfs:Class && ?tipo != people:Animal)
+    ?clasesPersona <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://oeg.fi.upm.es/def/people#Person> .
+    ?ind a ?clasesPersona .
 }
 """
 
