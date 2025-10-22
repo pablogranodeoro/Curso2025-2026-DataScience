@@ -8,8 +8,8 @@ Original file is located at
 
 **Task 07: Querying RDF(s)**
 """
-
 #!pip install rdflib
+
 import urllib.request
 url = 'https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2025-2026/refs/heads/master/Assignment4/course_materials/python/validation.py'
 urllib.request.urlretrieve(url, 'validation.py')
@@ -32,7 +32,12 @@ report = Report()
 """
 
 # Visualize the results
-result = [(c, g.value(subject=c, predicate=RDFS.subClassOf, object=None)) for c,p,o in g.triples((None, RDF.type, RDFS.Class))]
+result = []
+for s in g.subjects(RDF.type, RDFS.Class):
+    superclass = None
+    for o in g.objects(s, RDFS.subClassOf):
+        superclass = o
+    result.append((s, superclass))
 
 for r in result:
   print(r)
@@ -42,7 +47,12 @@ report.validate_07_1a(result)
 
 """**TASK 7.1b: Repeat the same exercise in SPARQL, returning the variables ?c (class) and ?sc (superclass)**"""
 
-query =  "SELECT ?c ?sc WHERE {?c rdf:type rdfs:Class. OPTIONAL {?c rdfs:subClassOf ?sc.}}"
+query = """
+SELECT ?c ?sc WHERE {
+  ?c a rdfs:Class .
+  OPTIONAL { ?c rdfs:subClassOf ?sc. }
+}
+"""
 
 for r in g.query(query):
   print(r.c, r.sc)
@@ -57,22 +67,48 @@ report.validate_07_1b(query,g)
 ns = Namespace("http://oeg.fi.upm.es/def/people#")
 
 # variable to return
+#individuals = []
+"""
+person_classes = set()
+for s, p, o in g.triples((None, RDFS.subClassOf, ns.Person)):
+   person_classes.add(s)
+   print(s)
+for s in g.subjects(RDFS.subClassOf, ns.Person):
+    person_classes.add(s)
+    print(s)
+person_classes.add(ns.Person)
+
+for cls in person_classes:
+    for s in g.subjects(RDF.type, cls):
+        individuals.append(s)
+        print(s)
+"""
+
+from rdflib.namespace import RDF, RDFS
+
+ns = Namespace("http://oeg.fi.upm.es/def/people#")
+
+# Lista de individuos a devolver
 individuals = []
 
-def get_subclasses(clase):
-  subclasses=[]
-  for cl,p,o in g.triples((None, RDFS.subClassOf, clase)):
-    subclasses.append(cl)
-    subclasses += get_subclasses(cl)
-  return subclasses
+# Primero, encontrar todas las clases que son Person o subclases de Person
+person_classes = set([ns.Person])
 
-classes=get_subclasses(ns.Person)
-classes.append(ns.Person)
+# Recorremos el grafo para encontrar subclases (recursivamente si hace falta)
+def get_subclasses(cls):
+    for subclass in g.subjects(RDFS.subClassOf, cls):
+        if subclass not in person_classes:
+            person_classes.add(subclass)
+            get_subclasses(subclass)
 
-for cl in classes:
-  individuals += [per for per,p,o in g.triples((None, RDF.type, cl))]
+get_subclasses(ns.Person)
 
-# visualize results
+# Ahora buscamos todos los individuos de esas clases
+for cls in person_classes:
+    for ind in g.subjects(RDF.type, cls):
+        individuals.append(ind)
+
+# variable to return
 for i in individuals:
   print(i)
 
@@ -81,7 +117,12 @@ report.validate_07_02a(individuals)
 
 """**TASK 7.2b: Repeat the same exercise in SPARQL, returning the individual URIs in a variable ?ind**"""
 
-query =  "SELECT ?ind WHERE{?c rdfs:subClassOf* <http://oeg.fi.upm.es/def/people#Person>. ?ind a ?c}"
+query = """
+SELECT ?ind WHERE {
+  ?ind a ?type .
+  ?type rdfs:subClassOf* <http://oeg.fi.upm.es/def/people#Person> .
+}
+"""
 
 for r in g.query(query):
   print(r.ind)
@@ -92,10 +133,12 @@ report.validate_07_02b(g, query)
 
 """**TASK 7.3:  List the name and type of those who know Rocky (in SPARQL only). Use name and type as variables in the query**"""
 
-query =  """SELECT ?name ?type WHERE{
-    ?name <http://oeg.fi.upm.es/def/people#knows> <http://oeg.fi.upm.es/def/people#Rocky>.
-    ?name a ?type
-  }"""
+query = """
+SELECT ?name ?type WHERE {
+  ?name <http://oeg.fi.upm.es/def/people#knows> <http://oeg.fi.upm.es/def/people#Rocky> .
+  ?name a ?type .
+}
+"""
 # Visualize the results
 for r in g.query(query):
   print(r.name, r.type)
@@ -113,11 +156,10 @@ query =  """SELECT ?name WHERE {
 }
 """
 
-# Visualize the results
 for r in g.query(query):
   print(r.name)
 
-
+# Visualize the results
 
 ## Validation: Do not remove
 report.validate_07_04(g,query)

@@ -41,21 +41,26 @@ person = Namespace("http://oeg.fi.upm.es/def/people#")
 
 """
 
+
 g.add((person.Person, RDF.type, RDFS.Class))
 g.add((person.Person, RDFS.label, Literal("Person", datatype=XSD.string)))
+
 g.add((person.Professor, RDF.type, RDFS.Class))
 g.add((person.Professor, RDFS.label, Literal("Professor", datatype=XSD.string)))
+g.add((person.Professor, RDFS.subClassOf, person.Person))
+
 g.add((person.AssociateProfessor, RDF.type, RDFS.Class))
 g.add((person.AssociateProfessor, RDFS.label, Literal("AssociateProfessor", datatype=XSD.string)))
-g.add((person.InterimAssociateProfessor, RDF.type, RDFS.Class))
-g.add((person.InterimAssociateProfessor, RDFS.label, Literal("InterimAssociateProfessor", datatype=XSD.string)))
+g.add((person.AssociateProfessor, RDFS.subClassOf, person.Professor))
+
 g.add((person.FullProfessor, RDF.type, RDFS.Class))
 g.add((person.FullProfessor, RDFS.label, Literal("FullProfessor", datatype=XSD.string)))
-
-g.add((person.Professor, RDFS.subClassOf, person.Person))
 g.add((person.FullProfessor, RDFS.subClassOf, person.Professor))
-g.add((person.AssociateProfessor, RDFS.subClassOf, person.Professor))
+
+g.add((person.InterimAssociateProfessor, RDF.type, RDFS.Class))
+g.add((person.InterimAssociateProfessor, RDFS.label, Literal("InterimAssociateProfessor", datatype=XSD.string)))
 g.add((person.InterimAssociateProfessor, RDFS.subClassOf, person.AssociateProfessor))
+
 # Visualize the results
 for s, p, o in g:
   print(s,p,o)
@@ -65,20 +70,22 @@ r.validate_task_06_01(g)
 
 """**TASK 6.2: Add the 3 properties shown in slide 36. Add labels for each of them (exactly as they are in the slide, with no language tags), and their corresponding domains and ranges using RDFS. Remember adding the correct datatype (xsd:String) when appropriate. If a property has no range, make it a literal (string)**"""
 
-g.add((person.hasName, RDF.type, RDF.Property))
-g.add((person.hasName, RDFS.label, Literal("hasName", datatype=XSD.string)))
-g.add((person.hasName, RDFS.domain, person.Person))
-g.add((person.hasName, RDFS.range, RDFS.Literal))
 
 g.add((person.hasColleague, RDF.type, RDF.Property))
 g.add((person.hasColleague, RDFS.label, Literal("hasColleague", datatype=XSD.string)))
 g.add((person.hasColleague, RDFS.domain, person.Person))
 g.add((person.hasColleague, RDFS.range, person.Person))
 
+g.add((person.hasName, RDF.type, RDF.Property))
+g.add((person.hasName, RDFS.label, Literal("hasName", datatype=XSD.string)))
+g.add((person.hasName, RDFS.domain, person.Person))
+g.add((person.hasName, RDFS.range, RDFS.Literal))
+
 g.add((person.hasHomePage, RDF.type, RDF.Property))
 g.add((person.hasHomePage, RDFS.label, Literal("hasHomePage", datatype=XSD.string)))
 g.add((person.hasHomePage, RDFS.domain, person.FullProfessor))
 g.add((person.hasHomePage, RDFS.range, RDFS.Literal))
+
 # Visualize the results
 for s, p, o in g:
   print(s,p,o)
@@ -88,7 +95,9 @@ r.validate_task_06_02(g)
 
 """**TASK 6.3: Create the individuals shown in slide 36 under "Datos". Link them with the same relationships shown in the diagram."**"""
 
+
 data=Namespace("http://oeg.fi.upm.es/resource/person/")
+g.namespace_manager.bind('data', data, override=False)
 
 g.add((data.Raul, RDF.type, person.InterimAssociateProfessor))
 g.add((data.Raul, RDFS.label, Literal("Raul", datatype=XSD.string)))
@@ -102,6 +111,7 @@ g.add((data.Oscar, RDF.type, person.AssociateProfessor))
 g.add((data.Oscar, RDFS.label, Literal("Oscar", datatype=XSD.string)))
 g.add((data.Oscar, person.hasName, Literal("Óscar Corcho García")))
 g.add((data.Oscar, person.hasColleague, data.Asun))
+
 # Visualize the results
 for s, p, o in g:
   print(s,p,o)
@@ -112,8 +122,11 @@ r.validate_task_06_03(g)
 
 """
 
+
 vcard=Namespace("http://www.w3.org/2001/vcard-rdf/3.0/")
 foaf=Namespace("http://xmlns.com/foaf/0.1/")
+g.namespace_manager.bind('vcard', vcard, override=False)
+g.namespace_manager.bind('foaf', foaf, override=False)
 
 g.add((vcard.Family, RDF.type, RDF.Property))
 g.add((vcard.Family, RDFS.range, XSD.string))
@@ -122,7 +135,7 @@ g.add((vcard.Given, RDF.type, RDF.Property))
 g.add((vcard.Given, RDFS.range, XSD.string))
 
 g.add((foaf.email, RDF.type, RDFS.Datatype))
-g.add((foaf.eamil, RDFS.range, XSD.string))
+g.add((foaf.email, RDFS.range, XSD.string))
 
 g.add((data.Oscar, vcard.Family, Literal("Corcho García")))
 g.add((data.Oscar, vcard.Given, Literal("Oscar")))
