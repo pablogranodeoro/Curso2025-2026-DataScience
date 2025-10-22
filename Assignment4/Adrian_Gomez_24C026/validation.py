@@ -256,3 +256,4 @@ class Report:
                 error = True
         if not error:
             self.__add_to_report("TASK 7.4 OK")
+
