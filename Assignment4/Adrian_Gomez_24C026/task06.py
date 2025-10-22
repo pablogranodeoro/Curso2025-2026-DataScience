@@ -41,7 +41,6 @@ person = Namespace("http://oeg.fi.upm.es/def/people#")
 
 """
 
-# TO DO
 g.add((person.Person, RDF.type, RDFS.Class))
 g.add((person.Person, RDFS.label, Literal("Person", datatype=XSD.string)))
 g.add((person.Professor, RDF.type, RDFS.Class))
@@ -66,7 +65,6 @@ r.validate_task_06_01(g)
 
 """**TASK 6.2: Add the 3 properties shown in slide 36. Add labels for each of them (exactly as they are in the slide, with no language tags), and their corresponding domains and ranges using RDFS. Remember adding the correct datatype (xsd:String) when appropriate. If a property has no range, make it a literal (string)**"""
 
-# TO DO
 g.add((person.hasName, RDF.type, RDF.Property))
 g.add((person.hasName, RDFS.label, Literal("hasName", datatype=XSD.string)))
 g.add((person.hasName, RDFS.domain, person.Person))
@@ -90,7 +88,6 @@ r.validate_task_06_02(g)
 
 """**TASK 6.3: Create the individuals shown in slide 36 under "Datos". Link them with the same relationships shown in the diagram."**"""
 
-# TO DO
 data=Namespace("http://oeg.fi.upm.es/resource/person/")
 
 g.add((data.Raul, RDF.type, person.InterimAssociateProfessor))
@@ -115,7 +112,6 @@ r.validate_task_06_03(g)
 
 """
 
-# TO DO
 vcard=Namespace("http://www.w3.org/2001/vcard-rdf/3.0/")
 foaf=Namespace("http://xmlns.com/foaf/0.1/")
 

@@ -33,6 +33,7 @@ report = Report()
 
 # Visualize the results
 result = [(c, g.value(subject=c, predicate=RDFS.subClassOf, object=None)) for c,p,o in g.triples((None, RDF.type, RDFS.Class))]
+
 for r in result:
   print(r)
 
@@ -67,6 +68,7 @@ def get_subclasses(clase):
 
 classes=get_subclasses(ns.Person)
 classes.append(ns.Person)
+
 for cl in classes:
   individuals += [per for per,p,o in g.triples((None, RDF.type, cl))]
 
