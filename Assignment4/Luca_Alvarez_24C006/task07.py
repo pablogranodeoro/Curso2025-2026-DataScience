@@ -8,8 +8,8 @@ Original file is located at
 
 **Task 07: Querying RDF(s)**
 """
-
 #!pip install rdflib
+
 import urllib.request
 url = 'https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2025-2026/refs/heads/master/Assignment4/course_materials/python/validation.py'
 urllib.request.urlretrieve(url, 'validation.py')
@@ -67,17 +67,48 @@ report.validate_07_1b(query,g)
 ns = Namespace("http://oeg.fi.upm.es/def/people#")
 
 # variable to return
-individuals = []
+#individuals = []
+"""
 person_classes = set()
+for s, p, o in g.triples((None, RDFS.subClassOf, ns.Person)):
+   person_classes.add(s)
+   print(s)
 for s in g.subjects(RDFS.subClassOf, ns.Person):
     person_classes.add(s)
+    print(s)
 person_classes.add(ns.Person)
 
 for cls in person_classes:
     for s in g.subjects(RDF.type, cls):
         individuals.append(s)
+        print(s)
+"""
 
-# visualize results
+from rdflib.namespace import RDF, RDFS
+
+ns = Namespace("http://oeg.fi.upm.es/def/people#")
+
+# Lista de individuos a devolver
+individuals = []
+
+# Primero, encontrar todas las clases que son Person o subclases de Person
+person_classes = set([ns.Person])
+
+# Recorremos el grafo para encontrar subclases (recursivamente si hace falta)
+def get_subclasses(cls):
+    for subclass in g.subjects(RDFS.subClassOf, cls):
+        if subclass not in person_classes:
+            person_classes.add(subclass)
+            get_subclasses(subclass)
+
+get_subclasses(ns.Person)
+
+# Ahora buscamos todos los individuos de esas clases
+for cls in person_classes:
+    for ind in g.subjects(RDF.type, cls):
+        individuals.append(ind)
+
+# variable to return
 for i in individuals:
   print(i)
 
@@ -104,9 +135,8 @@ report.validate_07_02b(g, query)
 
 query = """
 SELECT ?name ?type WHERE {
-  ?person <http://xmlns.com/foaf/0.1/knows> <http://oeg.fi.upm.es/def/people#> .
-  ?person <http://xmlns.com/foaf/0.1/name> ?name .
-  ?person a ?type .
+  ?name <http://oeg.fi.upm.es/def/people#knows> <http://oeg.fi.upm.es/def/people#Rocky> .
+  ?name a ?type .
 }
 """
 # Visualize the results
@@ -118,20 +148,11 @@ report.validate_07_03(g, query)
 
 """**Task 7.4: List the name of those entities who have a colleague with a dog, or that have a collegue who has a colleague who has a dog (in SPARQL). Return the results in a variable called name**"""
 
-query = """
-SELECT DISTINCT ?name WHERE {
-  {
-    ?x <http://xmlns.com/foaf/0.1/colleague> ?y .
-    ?y a <http://oeg.fi.upm.es/def/people#Dog> .
-    ?x <http://xmlns.com/foaf/0.1/name> ?name .
-  }
+query =  """SELECT ?name WHERE {
+  ?p <http://oeg.fi.upm.es/def/people#ownsPet> ?m.
+  {?name <http://oeg.fi.upm.es/def/people#hasColleague> ?p}
   UNION
-  {
-    ?x <http://xmlns.com/foaf/0.1/colleague> ?y .
-    ?y <http://xmlns.com/foaf/0.1/colleague> ?z .
-    ?z a <http://oeg.fi.upm.es/def/people#Dog> .
-    ?x <http://xmlns.com/foaf/0.1/name> ?name .
-  }
+  {?p2 <http://oeg.fi.upm.es/def/people#hasColleague> ?p. ?name <http://oeg.fi.upm.es/def/people#hasColleague> ?p2.}
 }
 """
 
