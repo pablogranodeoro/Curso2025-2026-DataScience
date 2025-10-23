@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="97b11d2e-3323-450d-86e3-2ed73e882d27" name="Changes" comment="" />
+    <list default="true" id="2795aa02-869b-4e5c-a54b-136057c80d5d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment4/course_materials/python/task00.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment4/course_materials/python/task00.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment4/course_materials/python/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment4/course_materials/python/validation.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +20,7 @@
   "customColor": "",
   "associatedIndex": 5
 }]]></component>
-  <component name="ProjectId" id="34HZ7tSGMZEOMBZ4nKS7hofu7nP" />
+  <component name="ProjectId" id="34SdySbJBRRueY0HB3juOU5qIQ9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,11 +42,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="97b11d2e-3323-450d-86e3-2ed73e882d27" name="Changes" comment="" />
-      <created>1760872294312</created>
+      <changelist id="2795aa02-869b-4e5c-a54b-136057c80d5d" name="Changes" comment="" />
+      <created>1761211161728</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1760872294312</updated>
+      <updated>1761211161728</updated>
     </task>
     <servers />
   </component>
