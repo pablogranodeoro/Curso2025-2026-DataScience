@@ -45,11 +45,6 @@ for r in result:
 report.validate_07_1a(result)
 
 """
-
-```
-# Tiene formato de código
-```
-
 **TASK 7.1b: Repeat the same exercise in SPARQL, returning the variables ?c (class) and ?sc (superclass)**"""
 
 query =  """
