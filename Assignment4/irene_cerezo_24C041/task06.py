@@ -44,7 +44,7 @@ g.bind("person", person)
 
 # TO DO
 # Visualize the results
-ns2 = Namespace("http://oeg-fi.upm.es/def/people#")
+ns2 = Namespace("http://oeg.fi.upm.es/def/people#")
 g.remove((None, None, None))
 Person=ns2.Person
 g.add((Person, RDF.type, RDFS.Class))
@@ -53,7 +53,7 @@ Professor=ns2.Professor
 g.add((Professor, RDF.type, RDFS.Class))
 g.add((Professor, RDFS.subClassOf, Person))
 g.add((Professor, RDFS.label, Literal("Professor", datatype=XSD.string)))
-FullProfessor=ns2.Professor
+FullProfessor=ns2.FullProfessor
 g.add((FullProfessor, RDF.type, RDFS.Class))
 g.add((FullProfessor, RDFS.subClassOf, Professor))
 g.add((FullProfessor, RDFS.label, Literal("FullProfessor", datatype=XSD.string)))
@@ -100,8 +100,6 @@ r.validate_task_06_02(g)
 
 """**TASK 6.3: Create the individuals shown in slide 36 under "Datos". Link them with the same relationships shown in the diagram."**"""
 
-# TO DO
-# Visualize the results
 resource=Namespace("http://oeg.fi.upm.es/resource/person/")
 
 g.add((resource.Oscar, RDF.type, AssociateProfessor))
