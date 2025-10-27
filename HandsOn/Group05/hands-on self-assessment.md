@@ -1,12 +1,12 @@
-#Informe primera parte del trabajo
+# Informe primera parte del trabajo
 
-##1. Dataset elegido: Centros Sanitarios de Valencia
+## 1. Dataset elegido: Centros Sanitarios de Valencia
 
 | Fichero | Dominio Smart CIty | Entidades Clave para Linkeo |
 | :--- | :--- | :--- |
 | **'hospitales.csv'** | **Servicios Sociales y Salud/ Infraestructura Sanitaria** | **Latitud/Longitud**, **Barrio**, **Tipo** (Hospital, Centro de Salud) |
 
-###Cumplimiento de los requisitos (R1 - R6)
+### Cumplimiento de los requisitos (R1 - R6)
 
 Hemos seleccionado el dataset de **Centros Sanitarios de Valencia** ('hospitales.csv').
 
@@ -18,4 +18,5 @@ Hemos seleccionado el dataset de **Centros Sanitarios de Valencia** ('hospitales
 | **R4. Fácilmente Enlazable (Entidades Reales)** | **SÍ** | Contiene **Latitud/Longitud** (`geo_point_2d`), la clave más robusta para enlazar con LOD geográfico (GeoNames, DBpedia). |
 | **R5. Documentación Existe (Opcional)**| **SÍ** | Las cabeceras de las columnas (`Nombre`, `Tipo`, `Camas`, `Direccion`) sirven como documentación directa. |
 | **R6. Múltiples Fuentes (Opcional)** | **SÍ** | Se propone enlazar con datasets de **Movilidad (paradas de transporte)** y **Demografía (población por barrio)**. |
+
 
