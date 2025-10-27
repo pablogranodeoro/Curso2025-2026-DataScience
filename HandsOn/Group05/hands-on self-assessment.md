@@ -16,7 +16,8 @@ Hemos seleccionado el dataset de **Centros Sanitarios de Valencia** ('hospitales
 | **R2. Disponible como CSV** | **SÍ** | El fichero base para la transformación es el archivo **`hospitales.csv`**. |
 | **R3. Licencia Abierta** | **SÍ** | El origen público del dato garantiza una licencia que permite su publicación y reutilización. |
 | **R4. Fácilmente Enlazable (Entidades Reales)** | **SÍ** | Contiene **Latitud/Longitud** (`geo_point_2d`), la clave más robusta para enlazar con LOD geográfico (GeoNames, DBpedia). |
-| **R5. Documentación Existe (Opcional)**| **SÍ** | Las cabeceras de las columnas (`Nombre`, `Tipo`, `Camas`, `Direccion`) sirven como documentación directa. |
-| **R6. Múltiples Fuentes (Opcional)** | **SÍ** | Se propone enlazar con datasets de **Movilidad (paradas de transporte)** y **Demografía (población por barrio)**. |
+| **R5. Documentación Existe (Opcional)**| **NO** | No hay una documentación explícita para este dataset. |
+| **R6. Múltiples Fuentes (Opcional)** | **No** | Se propone enlazar con datasets de **Movilidad (paradas de transporte)** y **Demografía (población por barrio)**. |
+
 
 
