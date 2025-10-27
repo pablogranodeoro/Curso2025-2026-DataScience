@@ -13,3 +13,4 @@
 
 ## Idea de proyecto
 Una aplicación web que ayuda a los ciudadanos a descubrir centros educativos (públicos/privados, niveles, servicios especiales) en Madrid, visualizados en un mapa y enriquecidos con datos enlazados externos (por ejemplo, estadísticas de distrito, accesibilidad al transporte). Los usuarios pueden filtrar por nivel, titularidad, distrito, etc.; y consultar opciones de transporte.
+
