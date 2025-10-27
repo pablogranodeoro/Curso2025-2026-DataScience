@@ -1,5 +1,5 @@
 # Hands-On 1 – Dataset Selection  
-### Group 04
+### Group 07
 
 **Course:** Data Science (2025–2026)  
 **Subject:** Linked Data and Knowledge Graphs  

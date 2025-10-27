@@ -1,6 +1,6 @@
 # Self-Assessment Hands-On 1
 
-**Group:** 04  
+**Group:** 07
 **Dataset:** Air Quality in Madrid (2024)
 
 ### What we did
