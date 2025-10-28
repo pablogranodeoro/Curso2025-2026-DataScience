@@ -1,6 +1,6 @@
 # Hands-On Self-Assessment 1
 
-**Group:** Grupo 09  
+**Group:** Grupo 11  
 **Date:** 2025/10/27  
 **Members:** [Sihan Du, Ye Jin, Channa Pan]
 
