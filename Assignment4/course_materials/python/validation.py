@@ -47,7 +47,7 @@ class Report:
         print(message)
         self.__report = self.__report + message + "\n"
 
-    def validate_task_06_01(self, g):
+    def validate_task_06_01(self, g: object) -> None:
         error = False
         professorURI = g.value(subject=None, predicate=RDFS.label, object=Literal("Professor", datatype=XSD.string))
         personURI = g.value(subject=None, predicate=RDFS.label, object=Literal("Person", datatype=XSD.string))
