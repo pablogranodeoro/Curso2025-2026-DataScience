@@ -1,0 +1,120 @@
+@prefix : <http://group11.linkeddata.es/ontology/> .
+@prefix st: <http://group11.linkeddata.es/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix mod: <https://w3id.org/mod#> .
+@base <http://group11.linkeddata.es/ontology/> .
+
+<http://group11.linkeddata.es/ontology/> rdf:type owl:Ontology ;
+			mod:createdWith <https://chowlk.linkeddata.es/> .
+
+#################################
+#    Object Properties
+#################################
+
+## st:hasID
+st:hasID rdf:type owl:ObjectProperty ;
+		rdfs:domain st:Station ;
+		rdfs:range xsd:integer ;
+		rdfs:label "has i d" .
+
+## st:hasLatitud
+st:hasLatitud rdf:type owl:ObjectProperty ;
+		rdfs:range xsd:decimal ;
+		rdfs:label "has latitud" .
+
+## st:hasLongitud
+st:hasLongitud rdf:type owl:ObjectProperty ;
+		rdfs:domain st:Station ;
+		rdfs:range xsd:decimal ;
+		rdfs:label "has longitud" .
+
+## st:hasAddress
+st:hasAddress rdf:type owl:ObjectProperty ;
+		rdfs:domain st:Station ;
+		rdfs:range xsd:string ;
+		rdfs:label "has address" .
+
+## st:hasCP
+st:hasCP rdf:type owl:ObjectProperty ;
+		rdfs:domain st:Station ;
+		rdfs:label "has c p" .
+
+## st:inPoblacion
+st:inPoblacion rdf:type owl:ObjectProperty ;
+		rdfs:domain st:Station ;
+		rdfs:label "in poblacion" .
+
+## st:inCity
+st:inCity rdf:type owl:ObjectProperty ;
+		rdfs:domain st:Station ;
+		rdfs:label "in city" .
+
+## st:hasFile*
+st:hasFile* rdf:type owl:ObjectProperty ;
+		rdfs:domain st:Station ;
+		rdfs:label "has file*" .
+
+#################################
+#    Data Properties
+#################################
+
+## st:hasDescripcion
+st:hasDescripcion rdf:type owl:DatatypeProperty ;
+		rdfs:domain st:Station ;
+		rdfs:label "has descripcion" .
+
+#################################
+#    Classes
+#################################
+
+## xsd:integer
+xsd:integer rdf:type owl:Class ;
+	rdfs:label "integer" .
+
+## st:Station
+st:Station rdf:type owl:Class ;
+	rdfs:label "Station" .
+
+## xsd:decimal
+xsd:decimal rdf:type owl:Class ;
+	rdfs:label "decimal" .
+
+## xsd:decimal
+xsd:decimal rdf:type owl:Class ;
+	rdfs:label "decimal" .
+
+## xsd:string
+xsd:string rdf:type owl:Class ;
+	rdfs:label "string" .
+
+## xsd:string
+xsd:string rdf:type owl:Class ;
+	rdfs:label "string" .
+
+## xsd:string
+xsd:string rdf:type owl:Class ;
+	rdfs:label "string" .
+
+## xsd:string
+xsd:string rdf:type owl:Class ;
+	rdfs:label "string" .
+
+## xsd:anyURI
+xsd:anyURI rdf:type owl:Class ;
+	rdfs:label "any U R I" .
+
+#################################
+#    Instances
+#################################
+
+#################################
+#    General Axioms
+#################################
+
