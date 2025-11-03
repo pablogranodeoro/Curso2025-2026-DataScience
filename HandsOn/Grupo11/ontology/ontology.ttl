@@ -11,12 +11,12 @@ st: a owl:Ontology ;
 #    Object Properties
 #################################
 
-st:inMunicipality rdf:type owl:ObjectProperty ;
+st:inMunicipality a owl:ObjectProperty ;
     rdfs:label "in municipality"@en ;
     rdfs:domain st:Station ;
     rdfs:range st:Province .
 
-st:inProvince rdf:type owl:ObjectProperty ;
+st:inProvince a owl:ObjectProperty ;
     rdfs:label "in province"@en ;
     rdfs:domain st:Station ;
     rdfs:range st:Municipality .
@@ -25,38 +25,38 @@ st:inProvince rdf:type owl:ObjectProperty ;
 #    Data Properties
 #################################
 
-st:hasCode rdf:type owl:DatatypeProperty ;
+st:hasCode a owl:DatatypeProperty ;
     rdfs:label "has code"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:integer .
 
-st:hasDescription rdf:type owl:DatatypeProperty ;
+st:hasDescription a owl:DatatypeProperty ;
     rdfs:label "has description"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:string .
 
-st:hasLatitude rdf:type owl:DatatypeProperty ;
+st:hasLatitude a owl:DatatypeProperty ;
     rdfs:label "has latitude"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:decimal .
 
-st:hasLongitude rdf:type owl:DatatypeProperty ;
+st:hasLongitude a owl:DatatypeProperty ;
     rdfs:label "has longitude"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:decimal .
 
-st:hasAddress rdf:type owl:DatatypeProperty ;
+st:hasAddress a owl:DatatypeProperty ;
     rdfs:label "has address"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:string .
 
-st:hasCP rdf:type owl:DatatypeProperty ;
+st:hasCP a owl:DatatypeProperty ;
     rdfs:label "has cp"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:string .
 
 
-st:hasPDF rdf:type owl:DatatypeProperty ;
+st:hasPDF a owl:DatatypeProperty ;
     rdfs:label "has pdf"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:anyURI .
@@ -66,11 +66,11 @@ st:hasPDF rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################
 
-st:Station rdf:type owl:Class ;
+st:Station a owl:Class ;
     rdfs:label "Station"@en .
 
-st:Province rdf:type owl:Class ;
+st:Province a owl:Class ;
     rdfs:label "Province"@en .
 
-st:Municipality rdf:type owl:Class ;
+st:Municipality a owl:Class ;
     rdfs:label "Municipality"@en .
