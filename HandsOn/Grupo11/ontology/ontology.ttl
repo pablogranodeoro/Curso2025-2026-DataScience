@@ -12,63 +12,65 @@ st: a owl:Ontology ;
 #################################
 
 st:inMunicipality rdf:type owl:ObjectProperty ;
+    rdfs:label "in municipality"@en ;
     rdfs:domain st:Station ;
-    rdfs:range st:Province ;
-    rdfs:label "in municipality" .
+    rdfs:range st:Province .
 
 st:inProvince rdf:type owl:ObjectProperty ;
+    rdfs:label "in province"@en ;
     rdfs:domain st:Station ;
-    rdfs:range st:Municipality ;
-    rdfs:label "in province" .
+    rdfs:range st:Municipality .
 
 #################################
 #    Data Properties
 #################################
 
 st:hasCode rdf:type owl:DatatypeProperty ;
+    rdfs:label "has code"@en ;
     rdfs:domain st:Station ;
-    rdfs:range xsd:integer ;
-    rdfs:label "has code" .
+    rdfs:range xsd:integer .
 
 st:hasDescription rdf:type owl:DatatypeProperty ;
+    rdfs:label "has description"@en ;
     rdfs:domain st:Station ;
-    rdfs:range xsd:string ;
-    rdfs:label "has description" .
+    rdfs:range xsd:string .
 
 st:hasLatitude rdf:type owl:DatatypeProperty ;
+    rdfs:label "has latitude"@en ;
     rdfs:domain st:Station ;
-    rdfs:range xsd:decimal ;
-    rdfs:label "has latitude" .
+    rdfs:range xsd:decimal .
 
 st:hasLongitude rdf:type owl:DatatypeProperty ;
+    rdfs:label "has longitude"@en ;
     rdfs:domain st:Station ;
-    rdfs:range xsd:decimal ;
-    rdfs:label "has longitude" .
+    rdfs:range xsd:decimal .
 
 st:hasAddress rdf:type owl:DatatypeProperty ;
+    rdfs:label "has address"@en ;
     rdfs:domain st:Station ;
-    rdfs:range xsd:string ;
-    rdfs:label "has address" .
+    rdfs:range xsd:string .
 
 st:hasCP rdf:type owl:DatatypeProperty ;
+    rdfs:label "has cp"@en ;
     rdfs:domain st:Station ;
-    rdfs:range xsd:string ;
-    rdfs:label "has cp" .
+    rdfs:range xsd:string .
+
 
 st:hasPDF rdf:type owl:DatatypeProperty ;
+    rdfs:label "has pdf"@en ;
     rdfs:domain st:Station ;
-    rdfs:range xsd:anyURI ;
-    rdfs:label "has pdf" .
+    rdfs:range xsd:anyURI .
+
 
 #################################
 #    Classes
 #################################
 
 st:Station rdf:type owl:Class ;
-    rdfs:label "Station" .
+    rdfs:label "Station"@en .
 
 st:Province rdf:type owl:Class ;
-    rdfs:label "Province" .
+    rdfs:label "Province"@en .
 
 st:Municipality rdf:type owl:Class ;
-    rdfs:label "Municipality" .
+    rdfs:label "Municipality"@en .
