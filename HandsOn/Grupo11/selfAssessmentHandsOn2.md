@@ -14,20 +14,10 @@ Por otra parte, el publicador del dataset corresponde con la Entidad Pública Em
 
 Para la versión Linked Data generada, se propone mantener la misma licencia: CC BY 4.0.
 
-En cuanto a la ontología que se genera, las nomenclaturas empleadas son:
+En cuanto a la ontología que se genera:
 
-domain: Station
+-> Classes: Station, Province, Municipality, Facility
 
-range: Province or Municipality
+-> Object Properties: inMunicipality (Station → Municipality), inProvince (Station → Province), hasFacility (Station → Facility)
 
-Code: integer
-
-Latitude: decimal
-
-Longitude: decimal
-
-Address: string
-
-CP: string
-
-PDF: anyURI
+-> Data Properties: hasCode, hasDescription, hasLatitude, hasLongitude, hasAddress, hasCP, hasPDF
