@@ -14,12 +14,12 @@ st: a owl:Ontology ;
 st:inMunicipality a owl:ObjectProperty ;
     rdfs:label "in municipality"@en ;
     rdfs:domain st:Station ;
-    rdfs:range st:Province .
+    rdfs:range st:Municipality .
 
 st:inProvince a owl:ObjectProperty ;
     rdfs:label "in province"@en ;
     rdfs:domain st:Station ;
-    rdfs:range st:Municipality .
+    rdfs:range st:Province .
 
 #################################
 #    Data Properties
@@ -54,7 +54,6 @@ st:hasCP a owl:DatatypeProperty ;
     rdfs:label "has cp"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:string .
-
 
 st:hasPDF a owl:DatatypeProperty ;
     rdfs:label "has pdf"@en ;
