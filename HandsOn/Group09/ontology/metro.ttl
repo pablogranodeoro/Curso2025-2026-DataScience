@@ -3,15 +3,15 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix metro: <https://grupoXX.github.io/HandsOn/ontology#> .
-@prefix data:  <https://grupoXX.github.io/HandsOn/data/> .
+@prefix metro: <https://grupo09.github.io/HandsOn/ontology#> .
+@prefix data:  <https://grupo09.github.io/HandsOn/data/> .
 
 
 
-<https://grupoXX.github.io/HandsOn/ontology>
+<https://grupo09.github.io/HandsOn/ontology>
     a owl:Ontology ;
-    rdfs:label "Ontología de Metro y Afluencia (estructura)"@es ;
-    rdfs:comment "Ontología ligera basada en cabeceras de ficheros de afluencia diaria y líneas/estaciones del Metro."@es ;
+    rdfs:label "Ontología de Metro de Mexico y Afluencia "@es ;
+    rdfs:comment "Ontología basada en ficheros de afluencia diaria y líneas/estaciones del Metro de Mexico."@es ;
     owl:versionInfo "0.1.0" .
 
 
