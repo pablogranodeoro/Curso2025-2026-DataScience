@@ -14,12 +14,12 @@ st: a owl:Ontology ;
 st:inMunicipality rdf:type owl:ObjectProperty ;
     rdfs:domain st:Station ;
     rdfs:range st:Province ;
-    rdfs:label "in municipality" ;
+    rdfs:label "in municipality" .
 
 st:inProvince rdf:type owl:ObjectProperty ;
     rdfs:domain st:Station ;
     rdfs:range st:Municipality ;
-    rdfs:label "in province" ;
+    rdfs:label "in province" .
 
 #################################
 #    Data Properties
@@ -28,47 +28,47 @@ st:inProvince rdf:type owl:ObjectProperty ;
 st:hasCode rdf:type owl:DatatypeProperty ;
     rdfs:domain st:Station ;
     rdfs:range xsd:integer ;
-    rdfs:label "has code";
+    rdfs:label "has code" .
 
 st:hasDescription rdf:type owl:DatatypeProperty ;
     rdfs:domain st:Station ;
     rdfs:range xsd:string ;
-    rdfs:label "has description" ;
+    rdfs:label "has description" .
 
 st:hasLatitude rdf:type owl:DatatypeProperty ;
     rdfs:domain st:Station ;
     rdfs:range xsd:decimal ;
-    rdfs:label "has latitude" ;
+    rdfs:label "has latitude" .
 
 st:hasLongitude rdf:type owl:DatatypeProperty ;
     rdfs:domain st:Station ;
     rdfs:range xsd:decimal ;
-    rdfs:label "has longitude" ;
+    rdfs:label "has longitude" .
 
 st:hasAddress rdf:type owl:DatatypeProperty ;
     rdfs:domain st:Station ;
     rdfs:range xsd:string ;
-    rdfs:label "has address" ;
+    rdfs:label "has address" .
 
 st:hasCP rdf:type owl:DatatypeProperty ;
     rdfs:domain st:Station ;
     rdfs:range xsd:string ;
-    rdfs:label "has cp" ;
+    rdfs:label "has cp" .
 
 st:hasPDF rdf:type owl:DatatypeProperty ;
     rdfs:domain st:Station ;
     rdfs:range xsd:anyURI ;
-    rdfs:label "has pdf";
+    rdfs:label "has pdf" .
 
 #################################
 #    Classes
 #################################
 
 st:Station rdf:type owl:Class ;
-    rdfs:label "Station" ;
+    rdfs:label "Station" .
 
 st:Province rdf:type owl:Class ;
-    rdfs:label "Province" ;
+    rdfs:label "Province" .
 
 st:Municipality rdf:type owl:Class ;
-    rdfs:label "Municipality"
+    rdfs:label "Municipality" .
