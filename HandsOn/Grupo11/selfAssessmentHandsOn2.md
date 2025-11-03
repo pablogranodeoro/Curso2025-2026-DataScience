@@ -15,10 +15,17 @@ Por otra parte, el publicador del dataset corresponde con la Entidad Pública Em
 Para la versión Linked Data generada, se propone mantener la misma licencia: CC BY 4.0.
 
 En cuanto a la ontología que se genera, las nomenclaturas empleadas son:
+
 Station: string
+
 Description: string
+
 ID: integer
+
 Latitud: decimal
+
 Longitud: decimal
+
 Address: string
+
 CP: string
