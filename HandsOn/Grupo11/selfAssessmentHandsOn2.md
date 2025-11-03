@@ -16,15 +16,15 @@ Para la versión Linked Data generada, se propone mantener la misma licencia: CC
 
 En cuanto a la ontología que se genera, las nomenclaturas empleadas son:
 
-Station: string
+domain: Station
 
-Description: string
+range: Province or Municipality
 
 Code: integer
 
-Latitud: decimal
+Latitude: decimal
 
-Longitud: decimal
+Longitude: decimal
 
 Address: string
 
