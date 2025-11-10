@@ -1,6 +1,4 @@
-# Autoevaluación Práctica 1 - Grupo01
-
-# 🚇 Autoevaluación Práctica 1 - Grupo (Metro CDMX)
+# Autoevaluación Práctica 1 - Grupo09
 
 ## 1. Satisfacción de Requisitos (R1–R6)
 

@@ -4,8 +4,8 @@
 
 **The “analysis.html” file:**
 
-- [] Includes the potential license of the dataset to be generated ##(no se)
-- [ ] Includes the resource naming strategy ##(no se)
+- [x] Includes the potential license of the dataset to be generated
+- [x] Includes the resource naming strategy
 
 **The resource naming strategy:**
 
@@ -30,5 +30,5 @@
 - [x] Does not define multiple domains or multiple ranges in properties
 - [x] Contains at least one class that will be used to link to other entities
 
-## Comments on the self-assessment
-_(If required)_
+<!-- ## Comments on the self-assessment
+_(If required)_ -->
