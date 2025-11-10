@@ -11,39 +11,29 @@ st: a owl:Ontology ;
 #    Object Properties
 #################################
 
-st:inMunicipality a owl:ObjectProperty ;
-    rdfs:label "in municipality"@en ;
+st:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in"@en ;
     rdfs:domain st:Station ;
     rdfs:range st:Municipality .
 
-st:inProvince a owl:ObjectProperty ;
-    rdfs:label "in province"@en ;
+st:hasGeographicCoordinates a owl:ObjectProperty ;
+    rdfs:label "has geographic coordinates"@en ;
     rdfs:domain st:Station ;
-    rdfs:range st:Province .
+    rdfs:range st:GeographicCoordinates .
 
 #################################
-#    Data Properties
+#    Datatype Properties
 #################################
 
-st:hasCode a owl:DatatypeProperty ;
-    rdfs:label "has code"@en ;
+st:hasID a owl:DatatypeProperty ;
+    rdfs:label "has id"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:integer .
 
-st:hasDescription a owl:DatatypeProperty ;
-    rdfs:label "has description"@en ;
+st:hasName a owl:DatatypeProperty ;
+    rdfs:label "has name"@en ;
     rdfs:domain st:Station ;
     rdfs:range xsd:string .
-
-st:hasLatitude a owl:DatatypeProperty ;
-    rdfs:label "has latitude"@en ;
-    rdfs:domain st:Station ;
-    rdfs:range xsd:decimal .
-
-st:hasLongitude a owl:DatatypeProperty ;
-    rdfs:label "has longitude"@en ;
-    rdfs:domain st:Station ;
-    rdfs:range xsd:decimal .
 
 st:hasAddress a owl:DatatypeProperty ;
     rdfs:label "has address"@en ;
@@ -55,12 +45,6 @@ st:hasCP a owl:DatatypeProperty ;
     rdfs:domain st:Station ;
     rdfs:range xsd:string .
 
-st:hasPDF a owl:DatatypeProperty ;
-    rdfs:label "has pdf"@en ;
-    rdfs:domain st:Station ;
-    rdfs:range xsd:anyURI .
-
-
 #################################
 #    Classes
 #################################
@@ -68,8 +52,8 @@ st:hasPDF a owl:DatatypeProperty ;
 st:Station a owl:Class ;
     rdfs:label "Station"@en .
 
-st:Province a owl:Class ;
-    rdfs:label "Province"@en .
+st:GeographicCoordinates a owl:Class ;
+    rdfs:label "Geographic Coordinates"@en .
 
 st:Municipality a owl:Class ;
     rdfs:label "Municipality"@en .
