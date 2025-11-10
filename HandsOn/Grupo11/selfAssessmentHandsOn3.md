@@ -8,9 +8,10 @@
 
 ---
 
-Del dataset inicial se han eliminado las columnas de "Fichas" y "Túneles lavado".
+Del dataset inicial se han eliminado las columnas de "_id", "PROVINCIA", "Fichas" y "Túneles lavado".
 
-Los datos de las columnas "Descripción", "Población" y "Provincia" se han convertido en letras mayúsculas y sin separaciones por comas
-(por ejemplo, "Escorial, El" convertido en "EL ESCORIAL").
+La columna de "CÓDIGO" se renombra como "ID" y "DESCRIPCIÓN" como "NOMBRE", con todos sus valores en letras mayúsculas.
 
-Las columnas de "Latitud" y "Longitud" se han unificado en una sola columna, denominada "Coordenadas".
+Las columnas de "LATITUD" y "LONGITUD" se han unificado en una sola columna, denominada "COORDENADAS".
+
+Los datos de "POBLACIÓN" se han convertido en letras mayúsculas y sin separaciones por comas (por ejemplo, "Escorial, El" convertido en "EL ESCORIAL").
