@@ -6,9 +6,8 @@
 
 ---
 
-Durante esta segunda entrega hemos trabajado con el dataset **poblacion_1_enero.csv**, que contiene información sobre la población de la ciudad de Madrid a 1 de enero, desagregada por distritos y barrios.  
+Durante esta segunda entrega hemos trabajado con el dataset **poblacion_1_enero.csv**, que contiene información sobre la población de la ciudad de Madrid.  
 
-El objetivo ha sido familiarizarnos con los primeros pasos del proceso de generación de Linked Data, realizando el análisis del dataset, la revisión de su licencia y la definición de una estrategia coherente de nombrado de recursos. Además, se ha desarrollado una ontología ligera en OWL (sintaxis Turtle) que describe las entidades principales del conjunto de datos.
 
 ## Archivos entregados
 
