@@ -31,6 +31,14 @@ aq:mideParametro a owl:ObjectProperty ;
     rdfs:domain aq:Medicion ;
     rdfs:range aq:Contaminante .
 
+aq:tieneId a owl:DatatypeProperty ;
+    rdfs:label "tiene id" ;
+    rdfs:domain aq:Medicion .
+
+aq:tieneZonaHoraria a owl:DatatypeProperty ;
+    rdfs:label "tiene zona horaria" ;
+    rdfs:domain aq:Medicion .
+
 aq:unidad a owl:DatatypeProperty ;
     rdfs:label "unidad" ;
     rdfs:domain aq:Medicion ;
