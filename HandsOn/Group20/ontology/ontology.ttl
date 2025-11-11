@@ -1,11 +1,11 @@
-@prefix ns:   <https://datos.grupo08-2025-cdia.org/ontology/bicimad#> .
-@prefix ex:   <https://datos.grupo08-2025-cdia.org/resource/> .
+@prefix ns:   <https://datos.grupo20-2025-cdia.org/ontology/bicimad#> .
+@prefix ex:   <https://datos.grupo20-2025-cdia.org/resource/> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 
-<https://datos.grupo08-2025-cdia.org/ontology/bicimad> a owl:Ontology ;
+<https://datos.grupo20-2025-cdia.org/ontology/bicimad> a owl:Ontology ;
     rdfs:label "Ontología ligera de BiciMAD"@es ;
     rdfs:comment "Ontología mínima para estaciones de BiciMAD y su localización administrativa. Cumple las normas de nomenclatura, dominios y rangos de la asignatura."@es .
 
