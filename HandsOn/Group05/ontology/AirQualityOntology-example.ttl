@@ -34,15 +34,19 @@
 ###############################################################################
 
 <Medicion/obs-2025-11-03T10-00-00Z-no2-28079004> a aq:Medicion ;
-  aq:valor      "43.2"^^xsd:decimal ;
-  aq:unidad     "µg/m³" ;
-  aq:fechaHora  "2025-11-03T10:00:00Z"^^xsd:dateTime ;
-  aq:mideParametro <Contaminante/NO2> ;
-  aq:enUbicacion   <Ubicacion/28079004> .
+  aq:id               "28079004_2025-11-03T10:00:00Z_no2" ;
+  aq:tieneZonaHoraria "Europe/Madrid" ;
+  aq:valor            "43.2"^^xsd:decimal ;
+  aq:unidad           "µg/m³" ;
+  aq:fechaHora        "2025-11-03T10:00:00Z"^^xsd:dateTime ;
+  aq:mideParametro    <Contaminante/NO2> ;
+  aq:enUbicacion      <Ubicacion/28079004> .
 
 <Medicion/obs-2025-11-03T10-00-00Z-pm10-28079008> a aq:Medicion ;
-  aq:valor      "27.0"^^xsd:decimal ;
-  aq:unidad     "µg/m³" ;
-  aq:fechaHora  "2025-11-03T10:00:00Z"^^xsd:dateTime ;
-  aq:mideParametro <Contaminante/PM10> ;
-  aq:enUbicacion   <Ubicacion/28079008> .
+  aq:id               "28079008_2025-11-03T10:00:00Z_pm10" ;
+  aq:tieneZonaHoraria "Europe/Madrid" ;
+  aq:valor            "27.0"^^xsd:decimal ;
+  aq:unidad           "µg/m³" ;
+  aq:fechaHora        "2025-11-03T10:00:00Z"^^xsd:dateTime ;
+  aq:mideParametro    <Contaminante/PM10> ;
+  aq:enUbicacion      <Ubicacion/28079008> .
